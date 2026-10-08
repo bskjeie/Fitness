@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fitness Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Fitness Planner</h1>
+    <p class="sub">Log your calories and get a workout plan for each day of the week.</p>
+  </header>
+
+  <main>
+    <section class="card" id="profile-card">
+      <h2>Your profile</h2>
+      <form id="profile-form" class="grid">
+        <label>Sex
+          <select name="sex">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </label>
+        <label>Age <input name="age" type="number" min="13" max="100" required></label>
+        <label>Weight (lb) <input name="weight" type="number" min="60" max="700" step="0.1" required></label>
+        <label>Height (ft)
+          <span class="pair">
+            <input name="heightFt" type="number" min="3" max="8" required aria-label="Feet">
+            <input name="heightIn" type="number" min="0" max="11" required aria-label="Inches">
+          </span>
+        </label>
+        <label>Activity level
+          <select name="activity">
+            <option value="1.2">Sedentary (desk job)</option>
+            <option value="1.375">Lightly active</option>
+            <option value="1.55">Moderately active</option>
+            <option value="1.725">Very active</option>
+          </select>
+        </label>
+        <label>Goal
+          <select name="goal">
+            <option value="lose">Lose weight</option>
+            <option value="maintain">Maintain</option>
+            <option value="gain">Build muscle</option>
+          </select>
+        </label>
+        <fieldset class="days">
+          <legend>Workout days</legend>
+          <div id="day-checks"></div>
+        </fieldset>
+        <button type="submit">Save profile</button>
+      </form>
+      <div id="stats" class="stats"></div>
+    </section>
+
+    <section class="card">
+      <h2>Log calories</h2>
+      <form id="log-form" class="row">
+        <input name="date" type="date" required aria-label="Date">
+        <input name="calories" type="number" min="1" max="10000" placeholder="Calories" required aria-label="Calories">
+        <input name="note" type="text" placeholder="What did you eat? (optional)" aria-label="Note">
+        <button type="submit">Add</button>
+      </form>
+      <div id="history"></div>
+    </section>
+
+    <section class="card">
+      <h2>Your next 7 days</h2>
+      <p class="hint">Each day's workout depends on what you ate the day before, or that day if you've already logged it. Click a day to see its exercises.</p>
+      <div id="plan" class="plan"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
